@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #000000;
+  --background: #ffffff;
+  --primary: #000000;
+  --secondary: #666666;
+  --accent: #0070f3;
+  --border: #eaeaea;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --muted: #fafafa;
+  --muted-foreground: #666666;
+  --success: #0070f3;
+  --warning: #f5a623;
+  --error: #ff0000;
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #ffffff;
+    --background: #000000;
+    --primary: #ffffff;
+    --secondary: #a1a1a1;
+    --accent: #3291ff;
+    --border: #333333;
+    --card: #111111;
+    --card-foreground: #ffffff;
+    --muted: #111111;
+    --muted-foreground: #a1a1a1;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@layer base {
+  h1 {
+    @apply text-5xl font-bold tracking-tight;
+  }
+  h2 {
+    @apply text-4xl font-semibold tracking-tight;
+  }
+  h3 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+  h4 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-gray-800 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-[#eaeaea] bg-white px-6 py-3 text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2;
+  }
+
+  .card {
+    @apply rounded-2xl border border-[#eaeaea] bg-white p-8 shadow-sm transition-all duration-200 hover:shadow-xl;
+  }
+
+  .input {
+    @apply block w-full rounded-xl border border-[#eaeaea] px-4 py-3 text-sm placeholder-gray-400 focus:border-black focus:outline-none focus:ring-1 focus:ring-black;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-gray-600 hover:text-black transition-colors duration-200;
+  }
+
+  .nav-link-active {
+    @apply text-black font-semibold;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold tracking-tight text-center mb-12;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0070f3] to-[#00a3ff];
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/80 backdrop-blur-lg border border-[#eaeaea] shadow-lg;
+}
+
+/* Card hover effects */
+.hover-card {
+  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+}
+
+/* Button hover effects */
+.hover-button {
+  @apply transition-all duration-300 hover:scale-105;
+}
+
+/* Link hover effects */
+.hover-link {
+  @apply transition-colors duration-200 hover:text-[#0070f3];
+}
+
+/* Grid layout */
+.grid-auto-fit {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+}
+
+.badge-primary {
+  @apply bg-[#0070f3] text-white;
+}
+
+.badge-secondary {
+  @apply bg-gray-100 text-gray-800;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  @apply animate-[fadeIn_0.5s_ease-in-out];
+}
+
+.animate-slide-up {
+  @apply animate-[slideUp_0.5s_ease-in-out];
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Add some basic styles for the prose class used in the app */
+.prose {
+  max-width: 65ch;
+  color: #374151;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose h1 {
+  color: #111827;
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+.prose h2 {
+  color: #111827;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+} 
