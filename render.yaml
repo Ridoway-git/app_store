@@ -1,15 +1,33 @@
 services:
   - type: web
-    name: app-landing-page
+    name: app-store
     env: node
-    buildCommand: npm install && npx prisma generate && npm run build
+    buildCommand: npm install && npm install -D tailwindcss postcss autoprefixer && npx prisma generate && npm run build
     startCommand: npm start
     envVars:
+      - key: DATABASE_URL
+        sync: false
       - key: NODE_ENV
         value: production
       - key: NEXTAUTH_URL
         sync: false
       - key: NEXTAUTH_SECRET
-        generateValue: true
-      - key: DATABASE_URL
-        value: file:./prisma/dev.db 
+        sync: false
+      - key: GITHUB_ID
+        sync: false
+      - key: GITHUB_SECRET
+        sync: false
+      - key: GOOGLE_ID
+        sync: false
+      - key: GOOGLE_SECRET
+        sync: false
+      - key: EMAIL_SERVER_USER
+        sync: false
+      - key: EMAIL_SERVER_PASSWORD
+        sync: false
+      - key: EMAIL_SERVER_HOST
+        sync: false
+      - key: EMAIL_SERVER_PORT
+        sync: false
+      - key: EMAIL_FROM
+        sync: false 
